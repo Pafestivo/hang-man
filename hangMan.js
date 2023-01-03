@@ -38,7 +38,16 @@ function handleGuess() {
         }
       }
       announceStats();
-    } else alert('NO!');
+    } else {
+      if(attempts > 1) {
+        console.log(`Unfortunately, ${guess} is incorrect.`)
+        attempts--
+        announceStats();
+      } else {
+        alert('Game Over!')
+        console.log(`You lost! the word was ${chosenWord}`);
+      }
+    };
   }
 }
 
