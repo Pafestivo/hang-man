@@ -3,6 +3,7 @@ const wordsPool = ['sea', 'ocean', 'wonderland', 'sun', 'grass', 'bottle', 'cont
 let chosenWord = '';
 let hiddenWord = '';
 let attempts = 10;
+let guessedLetters = [];
 
 function startGame() {
   chosenWord = wordsPool[Math.floor(Math.random() * wordsPool.length)];
@@ -28,13 +29,19 @@ function announceStats() {
 }
 
 function handleGuess() {
-  let guess = prompt('What is your guess?');
+  let guess = prompt('What is your guess?').toLowerCase();
 
   if(guess === null || !isNaN(guess) || guess.length != 1) { //if input is invalid
     alert('This input is invalid. Please type a single letter.')
     handleGuess();
   } 
+  else if(guessedLetters.indexOf(guess) != -1) { //if already guessed that letter
+    alert('You already guessed that.');
+    handleGuess();
+  }
   else {
+    guessedLetters.push(guess); //add the letter to guessed array
+
     if(chosenWord.indexOf(guess) != -1) { //if guess is correct
       console.log(`Nice! '${guess}' is correct`);
       
