@@ -1,4 +1,3 @@
-alert('Please open the console to play.')
 const wordsPool = ['sea', 'ocean', 'wonderland', 'sun', 'grass', 'bottle', 'control', 'speaker', 'surf'];
 
 let chosenWord = '';
@@ -12,7 +11,8 @@ function startGame() {
     hiddenWord += '*';
   }
 
-  announceStats();
+  alert('Please open the console to play.');
+  setTimeout(() => {announceStats();}, 100);
 };
 
 function announceStats() {
