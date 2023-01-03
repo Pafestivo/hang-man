@@ -31,8 +31,12 @@ function handleGuess() {
   } else {
     if(chosenWord.indexOf(guess) != -1) {
       console.log(`Nice! '${guess}' is correct`);
-      let index = chosenWord.indexOf(guess);
-      hiddenWord = hiddenWord.substring(0, index) + guess + hiddenWord.substring(index + 1);
+      
+      for (i = 0; i < chosenWord.length; i++) {
+        if(chosenWord[i] === guess) {
+          hiddenWord = hiddenWord.substring(0, i) + guess + hiddenWord.substring(i + 1)
+        }
+      }
       announceStats();
     } else alert('NO!');
   }
