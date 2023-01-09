@@ -23,7 +23,7 @@ function announceStats() {
   } else {
     console.log(`You have ${attempts} guesses.`)
     console.log(`The Word is:`)
-    console.log(`${hiddenWord} (${chosenWord})`);
+    console.log(`${hiddenWord}`);
     handleGuess();
   }
 }
@@ -67,3 +67,7 @@ function handleGuess() {
 }
 
 startGame();
+
+
+
+
